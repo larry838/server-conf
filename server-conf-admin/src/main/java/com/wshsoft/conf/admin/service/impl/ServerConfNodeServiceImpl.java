@@ -373,6 +373,7 @@ public class ServerConfNodeServiceImpl implements IServerConfNodeService, Initia
 		return new ReturnT<Map<String, String>>(result);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public DeferredResult<ReturnT<String>> monitor(String accessToken, String env, List<String> keys) {
 
