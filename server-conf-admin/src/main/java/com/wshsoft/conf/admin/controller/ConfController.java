@@ -10,6 +10,8 @@ import com.wshsoft.conf.admin.dao.ServerConfProjectDao;
 import com.wshsoft.conf.admin.service.IServerConfNodeService;
 import com.wshsoft.conf.admin.service.impl.LoginService;
 import com.wshsoft.conf.core.model.ServerConfParamVO;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,8 +44,27 @@ public class ConfController {
 
 	@RequestMapping("")
 	public String index(HttpServletRequest request, Model model, String appname){
-
-		List<ServerConfProject> list = ServerConfProjectDao.findAll();
+		List<ServerConfProject> list=null;
+		ServerConfUser loginUser=(ServerConfUser) request.getAttribute(LoginService.LOGIN_IDENTITY);
+		
+		
+		if (loginUser.getPermission() == 1){
+			list=ServerConfProjectDao.findAll();
+		}else{
+			String[] proList =StringUtils.split(loginUser.getPermissionData(), ",");
+			if (proList==null || proList.length==0){
+				throw new RuntimeException("系统异常，无可用项目");   
+			}else{
+				 String[] idList = new String[proList.length];
+			       for (int i = 0; i < idList.length; i++) 
+			   	{
+			    	   idList[i] = proList[i].substring(0, proList[i].indexOf("#"));
+			   	}
+			    list=ServerConfProjectDao.selectByIdSet(idList);
+				
+			}
+		}
+		
 		if (list==null || list.size()==0) {
 			throw new RuntimeException("系统异常，无可用项目");
 		}
@@ -56,7 +77,7 @@ public class ConfController {
 		}
 
 		boolean ifHasProjectPermission = ServerConfNodeService.ifHasProjectPermission(
-				(ServerConfUser) request.getAttribute(LoginService.LOGIN_IDENTITY),
+				loginUser,
 				(String) request.getAttribute(CURRENT_ENV),
 				project.getAppname());
 

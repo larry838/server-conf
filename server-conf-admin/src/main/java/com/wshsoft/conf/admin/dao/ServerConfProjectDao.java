@@ -21,5 +21,7 @@ public interface ServerConfProjectDao {
     public int delete(@Param("appname") String appname);
 
     public ServerConfProject load(@Param("appname") String appname);
+    
+    public List<ServerConfProject> selectByIdSet(String[] idList);
 
 }

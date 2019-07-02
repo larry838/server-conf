@@ -19,6 +19,16 @@
 		ORDER BY t.appname
 	</select>
 	
+	<select id="selectByIdSet" resultMap="ServerConfProject">
+    SELECT
+    <include refid="Base_Column_List" />
+    from server_conf_project t
+    WHERE t.appname IN
+    <foreach collection="array" item="id" index="index" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </select>
+	
 	<select id="find" parameterType="java.util.Map" resultMap="ServerConfProject">
         SELECT <include refid="Base_Column_List" />
         FROM server_conf_project AS t
