@@ -83,7 +83,13 @@
 	</dependencies>
 
 	<build>
-		<plugins>
+
+				<plugins>
+					<!-- Source -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+					</plugin>
 			<!-- spring-boot-maven-plugin -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
