@@ -1,6 +1,5 @@
 package com.wshsoft.conf.core.core;
 
-import com.wshsoft.conf.core.ServerConfClient;
 import com.wshsoft.conf.core.listener.ServerConfListenerFactory;
 import com.wshsoft.conf.core.util.StringUtil;
 
@@ -20,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  * @author Carry_xie 2018-02-01 19:11:25
  */
 public class ServerConfLocalCacheConf {
-    private static Logger logger = LoggerFactory.getLogger(ServerConfClient.class);
+    private static Logger logger = LoggerFactory.getLogger(ServerConfLocalCacheConf.class);
 
 
     // ---------------------- init/destroy ----------------------

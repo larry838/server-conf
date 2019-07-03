@@ -12,6 +12,7 @@
     <packaging>jar</packaging>
 
     <properties>
+	   <server-conf-client.version>1.0.0</server-conf-client.version>
     </properties>
 
     <dependencyManagement>
@@ -41,8 +42,8 @@
         <!-- server-conf-client -->
         <dependency>
             <groupId>com.wshsoft</groupId>
-            <artifactId>server-conf-core</artifactId>
-            <version>${project.parent.version}</version>
+            <artifactId>server-conf-client</artifactId>
+            <version>${server-conf-client.version}</version>
         </dependency>
 
         <!-- devtools -->

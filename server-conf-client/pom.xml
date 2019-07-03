@@ -4,9 +4,9 @@
 	<parent>
 		<groupId>com.wshsoft</groupId>
 		<artifactId>server-conf</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
-	<artifactId>server-conf-core</artifactId>
+	<artifactId>server-conf-client</artifactId>
 	<packaging>jar</packaging>
 
 	<name>${project.artifactId}</name>
