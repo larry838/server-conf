@@ -28,7 +28,9 @@
         <h3><li> 
                <a href="${request.contextPath}/static/doc/Sever-conf.pdf" download="Sever-conf使用手册.pdf" target="_blank">Sever-conf 使用手册</a></li>
 	      <br/> <li> 
-               <a href="${request.contextPath}/static/doc/Server-CONF.pptx" download="Server-CONF架构图.pptx" target="_blank">Server-CONF架构图</a></li></h3>
+               <a href="${request.contextPath}/static/doc/Server-CONF.pptx" download="Server-CONF架构图.pptx" target="_blank">Server-CONF架构图</a></li>
+	      <br/> <li> 
+               <a href="${request.contextPath}/static/doc/server-conf-demo.rar" download="server-conf-demo.rar" target="_blank">示例demo代码</a></li></h3>
 	       
         <!-- /.content -->
     </div>

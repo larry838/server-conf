@@ -5,6 +5,7 @@ echo  c.执行clean命令
 echo  p.执行package命令
 echo  s.执行下载source文件命令
 echo  e.执行eclipse命令
+echo  d 执行deploy命令
 echo  q.退出
 
 echo 请输入要选择的命令：
@@ -14,6 +15,7 @@ IF %cmd% == p GOTO PACKAGE
 IF %cmd% == s GOTO SOURCES
 IF %cmd% == e GOTO ECLIPSE
 IF %cmd% == a GOTO ASSEMBLY
+IF %cmd% == d GOTO DEPLOY
 IF %cmd% == q GOTO END
 
 :ECLIPSE
@@ -43,9 +45,16 @@ GOTO INPUT
 
 
 :SOURCES
-mvn dependency:sources
+call mvn dependency:sources
 echo ============================================================================
 echo =========================== sources is complete=============================
+echo ============================================================================
+GOTO INPUT
+
+:DEPLOY
+call mvn deploy
+echo ============================================================================
+echo =========================== deploy is complete=============================
 echo ============================================================================
 GOTO INPUT
 
